@@ -297,6 +297,7 @@ fn launch_rocket(extra_debug: bool) {
         .mount(&[basepath, "/"].concat(), api::web_routes())
         .mount(&[basepath, "/api"].concat(), api::core_routes())
         .mount(&[basepath, "/admin"].concat(), api::admin_routes())
+        .mount(&[basepath, "/events"].concat(), api::core_events_routes())
         .mount(&[basepath, "/identity"].concat(), api::identity_routes())
         .mount(&[basepath, "/icons"].concat(), api::icons_routes())
         .mount(&[basepath, "/notifications"].concat(), api::notifications_routes())

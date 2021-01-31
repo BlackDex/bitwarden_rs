@@ -2,6 +2,7 @@ mod accounts;
 mod ciphers;
 mod folders;
 mod organizations;
+mod events;
 pub mod two_factor;
 
 pub fn routes() -> Vec<Route> {
@@ -15,6 +16,7 @@ pub fn routes() -> Vec<Route> {
     ];
 
     let mut routes = Vec::new();
+    routes.append(&mut events::routes());
     routes.append(&mut accounts::routes());
     routes.append(&mut ciphers::routes());
     routes.append(&mut folders::routes());
@@ -24,6 +26,14 @@ pub fn routes() -> Vec<Route> {
 
     routes
 }
+
+pub fn events_routes() -> Vec<Route> {
+    let mut routes = Vec::new();
+    routes.append(&mut events::main_routes());
+
+    routes
+}
+
 
 //
 // Move this somewhere else

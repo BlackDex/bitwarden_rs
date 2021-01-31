@@ -55,6 +55,23 @@ table! {
 }
 
 table! {
+    event (uuid) {
+        uuid -> Text,
+        event_type -> Integer,
+        user_uuid -> Nullable<Text>,
+        org_uuid -> Nullable<Text>,
+        cipher_uuid -> Nullable<Text>,
+        collection_uuid -> Nullable<Text>,
+        group_uuid -> Nullable<Text>,
+        org_user_uuid -> Nullable<Text>,
+        act_user_uuid -> Nullable<Text>,
+        device_type -> Nullable<Integer>,
+        ip_address -> Nullable<Text>,
+        event_date -> Timestamp,
+    }
+}
+
+table! {
     favorites (user_uuid, cipher_uuid) {
         user_uuid -> Text,
         cipher_uuid -> Text,

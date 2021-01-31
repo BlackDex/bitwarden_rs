@@ -153,7 +153,7 @@ impl Organization {
             "MaxStorageGb": 10, // The value doesn't matter, we don't check server-side
             "Use2fa": true,
             "UseDirectory": false,
-            "UseEvents": false,
+            "UseEvents": true,
             "UseGroups": false,
             "UseTotp": true,
             "UsePolicies": true,
@@ -281,7 +281,7 @@ impl UserOrganization {
 
             "Use2fa": true,
             "UseDirectory": false,
-            "UseEvents": false,
+            "UseEvents": true,
             "UseGroups": false,
             "UseTotp": true,
             "UsePolicies": true,

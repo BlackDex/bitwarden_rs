@@ -55,6 +55,23 @@ table! {
 }
 
 table! {
+    event (uuid) {
+        uuid -> Varchar,
+        event_type -> Integer,
+        user_uuid -> Nullable<Varchar>,
+        org_uuid -> Nullable<Varchar>,
+        cipher_uuid -> Nullable<Varchar>,
+        collection_uuid -> Nullable<Varchar>,
+        group_uuid -> Nullable<Varchar>,
+        org_user_uuid -> Nullable<Varchar>,
+        act_user_uuid -> Nullable<Varchar>,
+        device_type -> Nullable<Integer>,
+        ip_address -> Nullable<Text>,
+        event_date -> Timestamp,
+    }
+}
+
+table! {
     favorites (user_uuid, cipher_uuid) {
         user_uuid -> Text,
         cipher_uuid -> Text,

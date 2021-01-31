@@ -325,10 +325,13 @@ pub fn get_env_bool(key: &str) -> Option<bool> {
 use chrono::{DateTime, Local, NaiveDateTime, TimeZone};
 use chrono_tz::Tz;
 
+// Format used by Bitwarden API
+const DATETIME_FORMAT: &str = "%Y-%m-%dT%H:%M:%S%.6fZ";
+
 /// Formats a UTC-offset `NaiveDateTime` in the format used by Bitwarden API
 /// responses with "date" fields (`CreationDate`, `RevisionDate`, etc.).
 pub fn format_date(dt: &NaiveDateTime) -> String {
-    dt.format("%Y-%m-%dT%H:%M:%S%.6fZ").to_string()
+    dt.format(DATETIME_FORMAT).to_string()
 }
 
 /// Formats a `DateTime<Local>` using the specified format string.
@@ -356,6 +359,10 @@ pub fn format_datetime_local(dt: &DateTime<Local>, fmt: &str) -> String {
 /// and then calls [format_datetime_local](crate::util::format_datetime_local).
 pub fn format_naive_datetime_local(dt: &NaiveDateTime, fmt: &str) -> String {
     format_datetime_local(&Local.from_utc_datetime(dt), fmt)
+}
+
+pub fn parse_date(date: &str) -> NaiveDateTime {
+    NaiveDateTime::parse_from_str(date, DATETIME_FORMAT).unwrap()
 }
 
 //

@@ -16,6 +16,7 @@ pub use crate::api::{
     notifications::routes as notifications_routes,
     notifications::{start_notification_server, Notify, UpdateType},
     web::routes as web_routes,
+    core::events_routes as core_events_routes,
 };
 use crate::util;
 
